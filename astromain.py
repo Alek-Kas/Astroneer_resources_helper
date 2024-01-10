@@ -97,11 +97,13 @@ objects = {
 
 def calculate_components():
     global components
+    m = ['Малые', 'Средние', 'Большие']
     # Запрашиваем у пользователя количество объектов для каждого объекта
     num_objects = {}
     for obj in objects:
-        num = int(objects_entry[obj].get())
-        num_objects[obj] = num
+        if obj not in m:
+            num = int(objects_entry[obj].get())
+            num_objects[obj] = num
     # Проходимся по каждому объекту и вычисляем количество компонентов
     for obj, comp_dict in objects.items():
         for item, count in comp_dict.items():
